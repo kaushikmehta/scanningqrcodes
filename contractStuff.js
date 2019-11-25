@@ -8,9 +8,9 @@ function callScanner () {
 
   document.getElementById("wrap").style.display = "inline";
 
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
-        console.log(content);
+
         // scannedContent = content;
         // document.getElementById("yourInputFieldId").value = content; // Pass the scanned content value to an input field
 
@@ -27,7 +27,7 @@ function callScanner () {
       });
 
 
-            Instascan.Camera.getCameras().then(function (cameras) {
+      Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
           scanner.start(cameras[0]);
         } else {
@@ -50,7 +50,7 @@ function resellToken() {
 // END OF SCANNER JS CODE
 
 
-var contractaddress = "0x60083900c9d6b6c9e69202c7c1c9f0a8a1be2112" // BlockFest
+var contractaddress = "0x9841ae8e3b296a1a39ff9e9728487ea0773b06bf" // BlockFest
 var providers = ethers.providers;
 var utils = ethers.utils;
 var network = providers.networks.ropsten;
@@ -58,7 +58,7 @@ var network = providers.networks.ropsten;
 
 // var provider = providers.getDefaultProvider(network);
 var provider = new providers.Web3Provider(web3.currentProvider,'rinkeby');
-window.ethereum.enable()
+window.ethereum.enable();
 var signer;
 var contract;
 var abi =
@@ -648,7 +648,7 @@ function UpdateDapp(){
 //Connect To smart contract
   provider.listAccounts().then(function(accounts) {
 
-      signer = provider.getSigner();
+      signer = provider.getSigner(accounts[0]);
 
       // console.log(accounts[0]);
       // console.log(provider);
@@ -670,7 +670,7 @@ function UpdateDapp(){
 
 
       provider.listAccounts().then(function(accounts) {
-        signer = provider.getSigner(;
+        signer = provider.getSigner(accounts[0]);
         contract = new ethers.Contract(contractaddress, abi, signer);
 
 
@@ -752,7 +752,7 @@ function UpdateDapp(){
 
             })
           }, 100, OwnerOfPromise);
-        }
+        };
       });
 
           // console.log("Current Account: " + CurrentAccount);
@@ -845,7 +845,7 @@ function changePicture(accounts) {
           })
 
     }, 2000, GetImageLinkPromise);
-  }
+  };
  
 
 
@@ -876,17 +876,16 @@ function changePicture(accounts) {
 
 
       scannedContent
-      var uniqueId ="";
 
       if (scannedContent == "") {
 
 
-      
+      var uniqueId ="";
       console.log("Confirming blank UID:" + uniqueId);
 
 	   } else {
 
-       uniqueId = web3.fromAscii(scannedContent);
+      var uniqueId = web3.fromAscii(scannedContent);
       console.log("check UID:" + uniqueId);
 
 	   }
