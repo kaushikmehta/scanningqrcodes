@@ -648,7 +648,7 @@ function UpdateDapp(){
 //Connect To smart contract
   provider.listAccounts().then(function(accounts) {
 
-      signer = provider.getSigner(accounts[0]);
+      signer = provider.getSigner();
 
       // console.log(accounts[0]);
       // console.log(provider);
@@ -670,7 +670,7 @@ function UpdateDapp(){
 
 
       provider.listAccounts().then(function(accounts) {
-        signer = provider.getSigner(accounts[0]);
+        signer = provider.getSigner(;
         contract = new ethers.Contract(contractaddress, abi, signer);
 
 
