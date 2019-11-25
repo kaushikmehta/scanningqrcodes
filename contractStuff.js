@@ -50,7 +50,8 @@ function resellToken() {
 // END OF SCANNER JS CODE
 
 
-var contractaddress = "0x9841ae8e3b296a1a39ff9e9728487ea0773b06bf" // BlockFest
+// var contractaddress = "0x9841ae8e3b296a1a39ff9e9728487ea0773b06bf" // BlockFest
+var contractaddress = "0x5f08f4523ef25bd615f8b63162827ba3b61bf2c1" // New KM
 var providers = ethers.providers;
 var utils = ethers.utils;
 var network = providers.networks.ropsten;
